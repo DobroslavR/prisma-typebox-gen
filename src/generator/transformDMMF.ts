@@ -61,8 +61,10 @@ export function createTransformer(generatorName: string) {
       typeStr = `Type.${overrideType || 'Number'}(${optionsStr})`;
     } else if (['BigInt'].includes(field.type)) {
       typeStr = `Type.${overrideType || 'Integer'}(${optionsStr})`;
-    } else if (['String', 'DateTime', 'Json', 'Date'].includes(field.type)) {
+    } else if (['String', 'Json'].includes(field.type)) {
       typeStr = `Type.${overrideType || 'String'}(${optionsStr})`;
+    } else if (['DateTime', 'Date'].includes(field.type)) {
+      typeStr = `Type.${overrideType || 'Date'}(${optionsStr})`;
     } else if (field.type === 'Boolean') {
       typeStr = `Type.${overrideType || 'Boolean'}(${optionsStr})`;
     } else {
